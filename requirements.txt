@@ -1,0 +1,10 @@
+flask
+gunicorn
+pymysql
+numpy
+pandas
+scikit-learn
+imbalanced-learn
+catboost
+shap
+matplotlib

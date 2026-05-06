@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fb;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100vh;
+            background: #4F46E5;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cards */
+        .card-custom {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 20px;
+            background: white;
+        }
+
+        /* Buttons */
+        .btn-custom {
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        /* Stats */
+        .stat-box {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .bg-primary { background: #4F46E5 !important; }
+        .bg-success { background: #10B981 !important; }
+        .bg-danger { background: #EF4444 !important; }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+            <h4>Dashboard</h4>
+            <a href="/predict">New Prediction</a>
+            <a href="/history">History</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4">
+
+            <h3 class="mb-4">Prediction Dashboard</h3>
+
+            <!-- Stats -->
+            <div class="stat-box bg-primary">Total: {{ total }}</div>
+<div class="stat-box bg-danger">Stroke Risk: {{ stroke }}</div>
+<div class="stat-box bg-success">Normal: {{ normal }}</div>
+            <!-- Chart Card -->
+            <div class="card-custom">
+                <h5>Prediction Overview</h5>
+                <canvas id="chart"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+new Chart(document.getElementById("chart"), {
+    type: 'doughnut',
+    data: {
+        labels: ['Stroke Risk', 'Normal'],
+        datasets: [{
+            data: [30, 70],
+            backgroundColor: ['#EF4444', '#10B981']
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: 'top'
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

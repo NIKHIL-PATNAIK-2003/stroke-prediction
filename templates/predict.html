@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h2>Enter Patient Details</h2>
+
+<form method="post">
+
+<label>Gender:</label>
+<select name="gender">
+    <option>Male</option>
+    <option>Female</option>
+</select><br>
+
+<label>Age:</label>
+<input type="number" name="age" required><br>
+
+<label>Hypertension:</label>
+<select name="hypertension">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select><br>
+
+<label>Heart Disease:</label>
+<select name="heart_disease">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select><br>
+
+<label>Ever Married:</label>
+<select name="ever_married">
+    <option>Yes</option>
+    <option>No</option>
+</select><br>
+
+<label>Work Type:</label>
+<select name="work_type">
+    <option>Private</option>
+    <option>Self-employed</option>
+    <option>Govt_job</option>
+    <option>children</option>
+    <option>Never_worked</option>
+</select><br>
+
+<label>Residence Type:</label>
+<select name="Residence_type">
+    <option>Urban</option>
+    <option>Rural</option>
+</select><br>
+
+<label>Glucose Level:</label>
+<input type="number" step="0.1" name="avg_glucose_level" required><br>
+
+<label>BMI:</label>
+<input type="number" step="0.1" name="bmi" required><br>
+
+<label>Smoking Status:</label>
+<select name="smoking_status">
+    <option>never smoked</option>
+    <option>formerly smoked</option>
+    <option>smokes</option>
+    <option>Unknown</option>
+</select><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
